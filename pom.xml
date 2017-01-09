@@ -580,13 +580,11 @@
                       org.apache.maven.plugins
                     </groupId>
                     <artifactId>
-                      maven-checkstyle-plugin
                     </artifactId>
                     <versionRange>
                       [2.13,)
                     </versionRange>
                     <goals>
-                      <goal>checkstyle</goal>
                       <goal>check</goal>
                     </goals>
                   </pluginExecutionFilter>
