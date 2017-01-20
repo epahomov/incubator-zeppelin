@@ -74,7 +74,16 @@ public class SparkSqlInterpreter extends Interpreter {
     spark = (SparkInterpreter) p;
 
     if (lazy != null) {
-      lazy.open();
+      try {
+        lazy.open();
+      } catch (Exception e) {
+        if (e.toString().contains("stopped SparkContext")) {
+          lazy.close();
+          lazy.open();
+        } else {
+          throw e;
+        }
+      }
     }
     return spark;
   }
